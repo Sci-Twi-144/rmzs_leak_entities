@@ -1,0 +1,2 @@
+--[[SECURE]]--
+ENT.Type = "point"

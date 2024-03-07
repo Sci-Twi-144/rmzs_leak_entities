@@ -1,0 +1,14 @@
+--[[SECURE]]--
+AddCSLuaFile("shared.lua")
+AddCSLuaFile("cl_init.lua")
+include("shared.lua")
+
+SWEP.Primary.Projectile = "projectile_medblast"
+SWEP.Primary.ProjVelocity = 1000
+
+function SWEP:EntModify(ent)
+	local owner = self:GetOwner()
+	ent:SetDTBool(self.Mogus, true)
+	ent.ProjRadius = self.Primary.ProjExplosionRadius
+	ent.Heal = self.Heal * (owner.MedDartEffMul or 1)
+end
